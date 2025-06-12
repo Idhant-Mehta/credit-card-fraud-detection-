@@ -1,34 +1,23 @@
-# 💳 Credit Card Fraud Detection with Cybersecurity Enhancements
+# 💳 Credit Card Fraud Detection Using Machine Learning
 
-## 👨‍💻 Team Members
-- Idhant  
-- Akshon  
-- Harshmit  
+Detecting fraudulent credit card transactions using machine learning techniques on a real-world imbalanced dataset.
 
 ---
 
 ## 📌 Overview
-Credit card fraud is a major concern in the financial industry. This project uses **machine learning** to detect fraudulent transactions and ties the results into the **cybersecurity context**, aiming to flag malicious behavior in real time.
 
----
-
-## 🎯 Objective
-- Build a machine learning pipeline to classify transactions as **fraudulent** or **legitimate**.
-- Handle **imbalanced data** effectively.
-- Evaluate different classification algorithms.
-- Integrate insights with **cybersecurity best practices**.
+This project uses multiple machine learning models to classify credit card transactions as legitimate or fraudulent. The dataset is highly imbalanced, so special techniques like **SMOTE** are used to improve detection of rare fraudulent events.
 
 ---
 
 ## 🗃️ Dataset
 
-- **Source**: [Credit Card Fraud Detection Dataset on Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
-- **Size**: 284,807 transactions  
-- **Features**: 31  
-  - `Time`, `Amount`, anonymized features `V1–V28`, and `Class`
-- **Class Label**:
-  - `0` = Legitimate  
-  - `1` = Fraudulent (~0.17%)
+- **Source**: [Kaggle – Credit Card Fraud Detection Dataset 2023](https://www.kaggle.com/datasets/nelgiriyewithana/credit-card-fraud-detection-dataset-2023)
+- **Records**: 284,807 transactions  
+- **Features**: 31 (`Time`, `Amount`, `V1–V28`, `Class`)
+- **Target**: `Class` (0 = Legitimate, 1 = Fraudulent)
+
+📝 **Note**: Download the dataset manually and place `creditcard.csv` inside the `/data` folder.
 
 ---
 
@@ -36,55 +25,38 @@ Credit card fraud is a major concern in the financial industry. This project use
 
 ### 🔹 Preprocessing
 - Standardized `Time` and `Amount` using `StandardScaler`.
-- Addressed class imbalance using **SMOTE (Synthetic Minority Oversampling Technique)**.
+- Addressed imbalance using **SMOTE**.
 
-### 🔹 Models Used
-| Model                  | Notes |
-|------------------------|-------|
-| Logistic Regression    | Fast and interpretable baseline model |
-| Random Forest          | Handles imbalance, nonlinear patterns |
-| XGBoost                | High performance gradient boosting |
-| Support Vector Machine | Effective in high-dimensional space |
-| K-Nearest Neighbors    | Simple but computationally expensive |
+### 🔹 Models Trained
+- Logistic Regression
+- Random Forest
+- XGBoost
+- Support Vector Machine (SVM)
+- K-Nearest Neighbors (KNN)
 
----
+### 🔹 Metrics Used
+- Precision
+- Recall
+- F1 Score
+- Confusion Matrix
 
-## 📊 Evaluation Metrics
-- **Accuracy** *(not reliable alone due to imbalance)*
-- ✅ **Precision**
-- ✅ **Recall**
-- ✅ **F1 Score**
-- ✅ **Confusion Matrix**
-
-> 🔍 F1 Score is the main metric used, as it balances false positives and false negatives.
+> Accuracy is avoided due to data imbalance. **F1 Score** is prioritized.
 
 ---
 
-## 🔐 Cybersecurity Context
-Fraud detection models support:
-- Real-time transaction monitoring
-- Integration with **SIEM tools**
-- Behavior-based risk detection (IP changes, device fingerprinting)
+## 📈 Results
+
+- Best performance by **Random Forest** and **XGBoost** with F1 scores > 0.85.
+- SMOTE significantly boosted detection accuracy on minority class.
 
 ---
 
-## 📈 Results & Insights
-- **Random Forest** and **XGBoost** outperformed logistic regression.
-- Ensemble methods provide better generalization and robustness.
-- F1 Scores for best models were above 0.85 after SMOTE.
+## 🚀 Getting Started
 
----
+### Step 1: Clone Repository
+```bash
+git clone https://github.com/yourusername/credit-card-fraud-detection.git
+cd credit-card-fraud-detection
+pip install -r requirements.txt
+python fraud_detection_pipeline.py
 
-## 🔮 Future Work
-- 📦 Model Stacking (combine multiple models)
-- 🌍 Integrate geolocation, IP address, and device metadata
-- 🔐 Embed detection pipeline into cybersecurity tools for real-time alerts
-
----
-
-## 🚀 How to Run
-
-1. Clone this repo  
-2. Make sure to install required libraries:
-   ```bash
-   pip install pandas scikit-learn xgboost imbalanced-learn matplotlib
