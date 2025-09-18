@@ -116,5 +116,4 @@ credit-card-fraud-detection-/
 
 ---
 
-## 🤝 Contributing
-Issues and pull requests are welcome! If you spot a bug or want to add a model/metric, feel free to open a PR.
+
